@@ -11,7 +11,7 @@ short ReadYear() {
 
 bool IsLeapYear(short Year) {
 
-	return (Year % 400 == 0) ? true : ((Year % 4 == 0 && Year % 100 != 0) ? true : false);
+	return ((Year % 400 == 0) || (Year % 4 == 0 && Year % 100 != 0));
 }
 
 void CheckLeapYear(short Year) {
