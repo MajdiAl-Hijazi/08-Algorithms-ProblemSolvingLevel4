@@ -1,6 +1,7 @@
-# LEAP YEAR (one line code) :
-## [In this program](https://github.com/MajdiAl-Hijazi/08-Algorithms-ProblemSolvingLevel4/blob/main/%2303_LeapYear(OneLineOfCode)/%2303_LeapYear(OneLineOfCode).cpp) :
-We use inside `IsLeapYear` function the following :
+# Leap Year
+## One-Line Implementation
+### [In this program](https://github.com/MajdiAl-Hijazi/08-Algorithms-ProblemSolvingLevel4/blob/main/%2303_LeapYear(OneLineOfCode)/%2303_LeapYear(OneLineOfCode).cpp) :
+In the `IsLeapYear` function, we use the following:
 ```cpp
 bool IsLeapYear(short Year) {
 
@@ -9,9 +10,9 @@ bool IsLeapYear(short Year) {
 ```
 We optimized the leap year conditions by combining them into a single line using logical operators, which makes the code more concise and readable😎.
 ___
-# but ... 
-## [That program](https://github.com/MajdiAl-Hijazi/08-Algorithms-ProblemSolvingLevel4/blob/main/%2302_LeapYear.cpp) :
-We use inside `IsLeapYear` function the following :
+## Multi-Line Implementation
+### [That program](https://github.com/MajdiAl-Hijazi/08-Algorithms-ProblemSolvingLevel4/blob/main/%2302_LeapYear.cpp) :
+In the `IsLeapYear` function, we use the following:
 ```cpp
 bool IsLeapYear(short Year) {
 
