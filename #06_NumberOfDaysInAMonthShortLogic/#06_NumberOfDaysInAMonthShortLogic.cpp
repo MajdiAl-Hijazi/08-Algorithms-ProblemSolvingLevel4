@@ -9,7 +9,7 @@ short ReadYear() {
 	return Year;
 }
 
-short ReadMounth() {
+short ReadMonth() {
 
 	short Mounth = 0;
 	cout << "Enter a mounth to check ? ";
