@@ -3,7 +3,6 @@
 
 #include <ctime>
 #include<iostream>
-#include<ctime>
 using namespace std;
 
 struct stDate {
@@ -153,4 +152,5 @@ namespace Date {
 
         return Date;
     }
+
 }
