@@ -3,7 +3,6 @@
 
 #include <ctime>
 #include<iostream>
-#include<ctime>
 using namespace std;
 
 struct stDate {
@@ -266,4 +265,5 @@ namespace IncreaseDate {
         Date.Year += 1000;
         return Date;
     }
+
 }
