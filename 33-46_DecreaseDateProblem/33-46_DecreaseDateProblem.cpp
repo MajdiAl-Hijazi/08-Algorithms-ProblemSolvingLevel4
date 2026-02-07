@@ -1,4 +1,4 @@
-﻿#include<iostream>
+#include<iostream>
 #include "DateLib.h";
 using namespace std;
 
@@ -50,4 +50,5 @@ int main() {
 	cout << "14-Subtracting One Millennuim is : " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
 
 	return 0;
+
 }
