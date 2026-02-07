@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 
-
+	stDate Date = DateFun::GetSystemDate();
 
 	return 0;
 }
