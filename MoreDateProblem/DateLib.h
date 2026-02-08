@@ -57,6 +57,39 @@ namespace ReadDate {
 
 namespace DateFun {
 
+    string DayShortName(short DayOfWeekOrder) {
+
+        string arrDayNames[] = { "Sun","Mon","Tue","Wed","Thu","Fri","Sat" };
+        return arrDayNames[DayOfWeekOrder];
+    }
+
+    //Overload
+    short DayOfWeekOrder(stDate Date) {
+
+        short a, y, m;
+        a = (14 - Date.Month) / 12;
+        y = Date.Year - a;
+        m = Date.Month + (12 * a) - 2;
+
+        return (Date.Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+    }
+
+    bool IsBusinessDay(stDate Date) {
+    
+        short DayOrderInWeek = DayOfWeekOrder(Date);
+        return (DayOrderInWeek != 5 && DayOrderInWeek != 6);
+    }
+
+    bool IsEndOfWeek(stDate Date) {
+    
+        return (DayOfWeekOrder(Date) == 6);
+    }
+
+    bool IsWeekEnd(stDate Date) {
+    
+        return (DayOfWeekOrder(Date) == 5 || DayOfWeekOrder(Date) == 6);
+    }
+
     short DayOfWeekOrder(short Day, short Month, short Year) {
 
         short a, y, m;
