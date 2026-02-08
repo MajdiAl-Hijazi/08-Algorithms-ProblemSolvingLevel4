@@ -90,6 +90,28 @@ namespace DateFun {
         return (DayOfWeekOrder(Date) == 5 || DayOfWeekOrder(Date) == 6);
     }
 
+    short DaysUntilTheEndOfWeek(stDate Date) {
+    
+        return 6 - DayOfWeekOrder(Date);
+    }
+
+    short DaysUntilTheEndOfMonth(stDate Date1) {
+    
+        stDate Date2 = Date1;
+        Date2.Day = NumberOfDaysInAMonth(Date1.Month, Date1.Year);
+
+        return GetDifferenceInDays(Date1, Date2, true);
+    }
+
+    short DaysUntilTheEndOfYear(stDate Date1) {
+    
+        stDate Date2 = Date1;
+        Date2.Day = 31;
+        Date2.Month = 12;
+
+        return GetDifferenceInDays(Date1, Date2, true);
+    }
+
     short DayOfWeekOrder(short Day, short Month, short Year) {
 
         short a, y, m;
