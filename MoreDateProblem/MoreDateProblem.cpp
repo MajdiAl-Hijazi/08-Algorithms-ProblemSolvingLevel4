@@ -20,7 +20,7 @@ int main() {
 	if (DateFun::IsWeekEnd(Date))
 		cout << "Yes, it is a week end.";
 	else
-		cout << "No, it is not a week end.";
+		cout << "No it is " << DateFun::DayShortName(DateFun::DayOfWeekOrder(Date)) << ", not a week end.";
 
 	cout << "\n\nIt is Business Day ?\n";
 	if (DateFun::IsBusinessDay(Date))

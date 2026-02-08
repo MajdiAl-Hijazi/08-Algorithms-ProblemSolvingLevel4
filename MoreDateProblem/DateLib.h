@@ -63,21 +63,25 @@ namespace DateFun {
         return arrDayNames[DayOfWeekOrder];
     }
 
+    short DayOfWeekOrder(short Day, short Month, short Year) {
+
+        short a, y, m;
+        a = (14 - Month) / 12;
+        y = Year - a;
+        m = Month + (12 * a) - 2;
+
+        return (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+    }
+
     //Overload
     short DayOfWeekOrder(stDate Date) {
 
-        short a, y, m;
-        a = (14 - Date.Month) / 12;
-        y = Date.Year - a;
-        m = Date.Month + (12 * a) - 2;
-
-        return (Date.Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+        return DayOfWeekOrder(Date.Day, Date.Month, Date.Year);
     }
 
     bool IsBusinessDay(stDate Date) {
     
-        short DayOrderInWeek = DayOfWeekOrder(Date);
-        return (DayOrderInWeek != 5 && DayOrderInWeek != 6);
+        return !IsWeekEnd(Date);
     }
 
     bool IsEndOfWeek(stDate Date) {
@@ -87,17 +91,8 @@ namespace DateFun {
 
     bool IsWeekEnd(stDate Date) {
     
-        return (DayOfWeekOrder(Date) == 5 || DayOfWeekOrder(Date) == 6);
-    }
-
-    short DayOfWeekOrder(short Day, short Month, short Year) {
-
-        short a, y, m;
-        a = (14 - Month) / 12;
-        y = Year - a;
-        m = Month + (12 * a) - 2;
-
-        return (Day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+        short DayIndex = DayOfWeekOrder(Date);
+        return (DayIndex == 5 || DayIndex == 6);
     }
 
     void SwapDate(stDate& Date1, stDate& Date2) {
