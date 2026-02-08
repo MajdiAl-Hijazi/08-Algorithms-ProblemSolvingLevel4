@@ -4,7 +4,8 @@ using namespace std;
 
 int main() {
 
-	stDate Date = DateFun::GetSystemDate();
+	//stDate Date = DateFun::GetSystemDate();
+	stDate Date = ReadDate::ReadFullDate();
 
 	cout << "Today is " << DateFun::DayShortName(DateFun::DayOfWeekOrder(Date))
 		<< ", " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
@@ -29,6 +30,9 @@ int main() {
 
 	cout << "\n\n";
 
+	cout << "Days until end of week : " << DateFun::DaysUntilTheEndOfWeek(Date) << " Day(s)." << endl;
+	cout << "Days until end of month : " << DateFun::DaysUntilTheEndOfMonth(Date) << " Day(s)." << endl;
+	cout << "Days until end of year : " << DateFun::DaysUntilTheEndOfYear(Date) << " Day(s)." << endl;
 
 
 	return 0;
