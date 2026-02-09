@@ -79,11 +79,6 @@ namespace DateFun {
         return DayOfWeekOrder(Date.Day, Date.Month, Date.Year);
     }
 
-    bool IsBusinessDay(stDate Date) {
-    
-        return !IsWeekEnd(Date);
-    }
-
     bool IsEndOfWeek(stDate Date) {
     
         return (DayOfWeekOrder(Date) == 6);
@@ -93,6 +88,11 @@ namespace DateFun {
     
         short DayIndex = DayOfWeekOrder(Date);
         return (DayIndex == 5 || DayIndex == 6);
+    }
+
+       bool IsBusinessDay(stDate Date) {
+    
+        return !IsWeekEnd(Date);
     }
 
     void SwapDate(stDate& Date1, stDate& Date2) {

@@ -1,5 +1,5 @@
 ﻿#include<iostream>
-#include "DateLib.h";
+#include "DateLib.h"
 using namespace std;
 
 int main() {
