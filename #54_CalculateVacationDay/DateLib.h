@@ -59,6 +59,11 @@ namespace ReadDate {
 
 namespace DateFun {
 
+    bool Date1IsEqualDate2(const stDate& Date1, const stDate& Date2) {
+
+        return (Date1.Year == Date2.Year && Date1.Month == Date2.Month && Date1.Day == Date2.Day);
+    }
+
     string DayShortName(short DayOfWeekOrder) {
 
         string arrDayNames[] = { "Sun","Mon","Tue","Wed","Thu","Fri","Sat" };
@@ -199,19 +204,19 @@ namespace DateFun {
         return Date;
     }
 
-    short CalculateActualVacation(stDate DateFrom, stDate DateTo) {
+    short CalculateVacationDays(stDate DateFrom, stDate DateTo) {
     
-        short ActualVacation = 0;
+        short DaysCount = 0;
 
         while (IsDate1BeforeDate2(DateFrom, DateTo)) {
-        
-            if (!IsWeekEnd(DateFrom))
-                ActualVacation++;
+
+            if (IsBusinessDay(DateFrom))
+                DaysCount++;
 
             DateFrom = IncreaseDate::IncreaseDateByOneDay(DateFrom);
         }
 
-        return ActualVacation;
+        return DaysCount;
     }
 }
 

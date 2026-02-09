@@ -16,7 +16,7 @@ int main() {
 	cout << "\n\nVacation To : " << DateFun::DayShortName(DateFun::DayOfWeekOrder(DateTo))
 		<< ", " << DateTo.Day << "/" << DateTo.Month << "/" << DateTo.Year << endl;
 
-	cout << "\n\nActual Vacation Days is : " << DateFun::CalculateActualVacation(DateFrom, DateTo) << endl;
+	cout << "\n\nActual Vacation Days is : " << DateFun::CalculateVacationDays(DateFrom, DateTo) << endl;
 
 	return 0;
 }
