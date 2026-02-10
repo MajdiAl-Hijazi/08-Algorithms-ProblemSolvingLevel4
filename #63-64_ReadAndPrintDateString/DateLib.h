@@ -4,8 +4,10 @@
 
 #pragma warning(disable : 4996)
 
-#include <ctime>
 #include<iostream>
+#include <ctime>
+#include<vector>
+#include<string>
 using namespace std;
 
 struct stDate {
@@ -292,6 +294,45 @@ namespace DateFun {
             return false;
 
         return true;
+    }
+
+    vector<string> SplitString(string S1, string Delim) {
+    
+        vector<string> Words;
+        short Pos;
+        string Word = "";
+
+        while ((Pos = S1.find(Delim)) != string::npos) {
+        
+            Word = S1.substr(0, Pos);
+
+            if (Word != "")
+                Words.push_back(Word);
+
+            S1.erase(0, Pos + Delim.length());
+        }
+
+        if (S1 != "")
+            Words.push_back(S1);
+
+        return Words;
+    }
+
+    stDate StringToDate(string StringDate) {
+    
+        vector<string> Tokens = SplitString(StringDate, "/");
+        stDate Date;
+
+        Date.Day = stoi(Tokens.at(0));
+        Date.Month = stoi(Tokens.at(1));
+        Date.Year = stoi(Tokens.at(2));
+        
+        return Date;
+    }
+
+    string DateToString(stDate Date) {
+    
+        return  to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
     }
 }
 
