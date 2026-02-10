@@ -131,7 +131,7 @@ namespace DateFun {
 
     bool IsDate1AfterDat2(stDate Date1, stDate Date2) {
     
-        return (!IsDate1BeforeDate2(Date1, Date2));
+        return (!IsDate1BeforeDate2(Date1, Date2) && !Date1IsEqualDate2(Date1, Date2));
     }
 
     short NumberOfDaysInAMonth(short Month, short Year) {
