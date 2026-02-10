@@ -15,6 +15,8 @@ struct stDate {
     short Day;
 };
 
+enum enDateCompare { Before = -1, Equal = 0, After = 1 };
+
 //Declaration
 namespace IncreaseDate {
 
@@ -243,6 +245,17 @@ namespace DateFun {
             DateFrom = IncreaseDate::IncreaseDateByOneDay(DateFrom);
 
         return DateFrom;
+    }
+
+    enDateCompare CompareDate(stDate Date1, stDate Date2) {
+    
+        if (IsDate1BeforeDate2(Date1, Date2))
+            return enDateCompare::Before;
+
+        if (Date1IsEqualDate2(Date1, Date2))
+            return enDateCompare::Equal;
+
+        return enDateCompare::After;
     }
 }
 
