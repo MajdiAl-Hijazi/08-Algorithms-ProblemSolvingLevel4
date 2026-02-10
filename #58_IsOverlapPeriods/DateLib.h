@@ -542,6 +542,7 @@ namespace PeriodFun {
     stPeriod ReadPeriod() {
     
         stPeriod Period;
+        
         cout << "Enter Start Date :\n";
         Period.DateFrom = ReadDate::ReadFullDate();
 
@@ -549,5 +550,14 @@ namespace PeriodFun {
         Period.DateTo = ReadDate::ReadFullDate();
 
         return Period;
+    }
+
+    bool IsOverlapPeriod(stPeriod Period1, stPeriod Period2) {
+    
+        if (DateFun::CompareDate(Period2.DateTo, Period1.DateFrom) == enDateCompare::Before ||
+            DateFun::CompareDate(Period2.DateFrom, Period1.DateTo) == enDateCompare::After)
+            return false;
+
+            return true;
     }
 }

@@ -10,5 +10,12 @@ int main() {
 	cout << "\nEnter Period 2:" << endl;
 	stPeriod Period2 = PeriodFun::ReadPeriod();
 
+	cout << "\n\n";
+
+	if (PeriodFun::IsOverlapPeriod(Period1, Period2))
+		cout << "Yes, Periods Overlap" << endl;
+	else
+		cout << "No, Periods Not Overlap" << endl;
+
 	return 0;
 }
