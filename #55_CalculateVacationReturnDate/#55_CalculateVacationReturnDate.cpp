@@ -18,6 +18,5 @@ int main() {
 	Date = DateFun::CalculateVacationDate(Date, 23);
 	cout << "\nReturn Date : " << Date.Day << "/" << Date.Month << "/" << Date.Year << endl;
 
-
 	return 0;
 }
