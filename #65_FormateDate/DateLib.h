@@ -334,6 +334,29 @@ namespace DateFun {
 
         return  to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
     }
+
+    string ReplaceWordInString(string S1, string StringToReplace, string sRepalceTo) {
+
+        short pos = S1.find(StringToReplace);
+
+        while (pos != std::string::npos) {
+
+            S1 = S1.replace(pos, StringToReplace.length(), sRepalceTo);
+            pos = S1.find(StringToReplace);
+        }
+
+        return S1;
+    }
+
+    string FormateDate(stDate Date, string FormateDate = "dd/mm/yyyy") {
+    
+        string FormatedDateString = "";
+        FormatedDateString = ReplaceWordInString(FormateDate, "dd", to_string(Date.Day));
+        FormatedDateString = ReplaceWordInString(FormatedDateString, "mm", to_string(Date.Month));
+        FormatedDateString = ReplaceWordInString(FormatedDateString, "yyyy", to_string(Date.Year));
+
+        return FormatedDateString;
+    }
 }
 
 namespace IncreaseDate {
