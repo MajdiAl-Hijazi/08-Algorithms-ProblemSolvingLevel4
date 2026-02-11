@@ -67,6 +67,44 @@ namespace ReadDate {
     }
 }
 
+namespace StringFun {
+
+    string ReplaceWordInString(string S1, string StringToReplace, string sRepalceTo) {
+
+        short pos = S1.find(StringToReplace);
+
+        while (pos != std::string::npos) {
+
+            S1 = S1.replace(pos, StringToReplace.length(), sRepalceTo);
+            pos = S1.find(StringToReplace);
+        }
+
+        return S1;
+    }
+
+    vector<string> SplitString(string S1, string Delim) {
+
+        vector<string> Words;
+        short Pos;
+        string Word = "";
+
+        while ((Pos = S1.find(Delim)) != string::npos) {
+
+            Word = S1.substr(0, Pos);
+
+            if (Word != "")
+                Words.push_back(Word);
+
+            S1.erase(0, Pos + Delim.length());
+        }
+
+        if (S1 != "")
+            Words.push_back(S1);
+
+        return Words;
+    }
+}
+
 namespace DateFun {
 
     bool Date1IsEqualDate2(const stDate& Date1, const stDate& Date2) {
@@ -296,31 +334,9 @@ namespace DateFun {
         return true;
     }
 
-    vector<string> SplitString(string S1, string Delim) {
-
-        vector<string> Words;
-        short Pos;
-        string Word = "";
-
-        while ((Pos = S1.find(Delim)) != string::npos) {
-
-            Word = S1.substr(0, Pos);
-
-            if (Word != "")
-                Words.push_back(Word);
-
-            S1.erase(0, Pos + Delim.length());
-        }
-
-        if (S1 != "")
-            Words.push_back(S1);
-
-        return Words;
-    }
-
     stDate StringToDate(string StringDate) {
 
-        vector<string> Tokens = SplitString(StringDate, "/");
+        vector<string> Tokens = StringFun::SplitString(StringDate, "/");
         stDate Date;
 
         Date.Day = stoi(Tokens.at(0));
@@ -335,25 +351,12 @@ namespace DateFun {
         return  to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
     }
 
-    string ReplaceWordInString(string S1, string StringToReplace, string sRepalceTo) {
-
-        short pos = S1.find(StringToReplace);
-
-        while (pos != std::string::npos) {
-
-            S1 = S1.replace(pos, StringToReplace.length(), sRepalceTo);
-            pos = S1.find(StringToReplace);
-        }
-
-        return S1;
-    }
-
     string FormateDate(stDate Date, string FormateDate = "dd/mm/yyyy") {
     
         string FormatedDateString = "";
-        FormatedDateString = ReplaceWordInString(FormateDate, "dd", to_string(Date.Day));
-        FormatedDateString = ReplaceWordInString(FormatedDateString, "mm", to_string(Date.Month));
-        FormatedDateString = ReplaceWordInString(FormatedDateString, "yyyy", to_string(Date.Year));
+        FormatedDateString = StringFun::ReplaceWordInString(FormateDate, "dd", to_string(Date.Day));
+        FormatedDateString = StringFun::ReplaceWordInString(FormatedDateString, "mm", to_string(Date.Month));
+        FormatedDateString = StringFun::ReplaceWordInString(FormatedDateString, "yyyy", to_string(Date.Year));
 
         return FormatedDateString;
     }
